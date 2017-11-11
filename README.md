@@ -7,8 +7,8 @@ note: currently, because of vk api weirdness, only first 1000 fav.posts are acce
 * install node.js and npm: https://nodejs.org/en/
 * save ```vk.js``` in any directory
 * choose that direcory in console and run ```npm install node-vkapi --only=prod```. node_modules directory should appear there
-## token
-  WIP
+## access token
+  WIP, currently it must be put in vk.js by hand.
 ## usage
 1. choose directory with ```vk.js``` in console
 2. run ```node vk.js PATH``` where PATH is the directory you want all pictures o be saved.
