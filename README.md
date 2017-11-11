@@ -10,7 +10,7 @@ note: currently, because of vk api weirdness, only first 1000 fav.posts are acce
 ## token
   WIP
 ## usage
-choose directory with ```vk.js``` in console
-run ```node vk.js PATH```
-where PATH is the directory you want all pictures o be saved.
+1. choose directory with ```vk.js``` in console
+2. run ```node vk.js PATH``` where PATH is the directory you want all pictures o be saved.
+
 
