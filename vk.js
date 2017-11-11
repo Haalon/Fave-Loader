@@ -126,52 +126,7 @@ const stealMany = function( offset) {
 	
 	
 }
-
-
 stealMany(0);
 
+// https://oauth.vk.com/authorize?client_id=6245028&display=page&redirect_uri=https://oauth.vk.com/blank.html&scope=friends&response_type=token&v=5.52
 
-
-	
-	
-	
-
-/*
-
-
-https://oauth.vk.com/authorize?client_id=6245028&display=page&redirect_uri=https://oauth.vk.com/blank.html&scope=friends&response_type=token&v=5.52
-
-//console.log(path.sep+ "\\");
-
-
-
-mkdirpSync(dir);
-
-var request = https.get("https://pp.userapi.com/c841026/v841026291/18f5f/LOyk3RA4_vY.jpg", function(response) {
-  response.pipe(fs.createWriteStream(dir+"\\"+"test.jpg"));
-});
-
-var request = https.get("https://pp.userapi.com/c841239/v841239434/39346/dNpIVM7u3qI.jpg", function(response) {
-  response.pipe(fs.createWriteStream(dir+"\\"+"test2.jpg"));
-});
-*/
-/*
-
-
-vkapi.call("fave.getPosts",{offset: 100, count: 30, extended: 0})
-.then( function (fave){ fave.items.forEach(function(item, i, arr){ console.log(item), console.log(""); }) })
-.catch(error => console.error(error));
-*/
-/*
-vkapi.call("users.get",{user_ids: haalon, fields: "photo_id, verified, sex, bdate, city, country, home_town, has_photo, photo_50, photo_100, photo_200_orig, photo_200, photo_400_orig, photo_max, photo_max_orig, online, domain, has_mobile, contacts, site, education, universities, schools, status, last_seen, followers_count, common_count, occupation, nickname, relatives, relation, personal, connections"})
-.then( users=> console.dir(users))
-.catch(error => console.error(error));
-//69648193
-//20a60be9b5000ebd76fc9039c4ae26b591c4709881ddf282f98b5a0c5e8c7f34b381749e61177243f71d2
-/*
-var file = fs.createWriteStream("test.jpg");
-var request = http.get("https://pp.userapi.com/c840326/v840326356/1eac8/lO7IKaGa2ow.jpg", function(response) {
-  response.pipe(file);
-});
-console.log("hello world");*/
-//console.log(vkapi);
