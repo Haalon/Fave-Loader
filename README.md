@@ -1,5 +1,6 @@
 # Fave-Loader
-Get all pictures from your favourite posts(the posts you have liked) in VK, and sort them by groups. Works with VK API via node.js
+Get all pictures from your favourite posts(the posts you have liked) in VK, and sort them by groups. Works with VK API via node.js 
+
 note: currently, because of vk api weirdness, only first 1000 fav.posts are accessible
 ## dependencies
 ```node-vkapi```
