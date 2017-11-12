@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-var https = require('https');
+const https = require('https');
 const dir = process.argv[2]||"pics";
 const vkapi = new (require('node-vkapi'))({ accessToken: '0b0c4a8ad8e381e0edd60ae2e245744688a894f60a323b96891d725937c045b0dfa8ee172517003b1e9e6', scope:    262143 });
 const mkdirSync = function (dirPath) {
