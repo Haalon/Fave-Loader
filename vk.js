@@ -1,13 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 const https = require('https');
-const dir = process.argv[2]||"pics";
-const vkapi = new (require('node-vkapi'))({ accessToken: 'put it here', scope:    262143 });
-
-/* to get token, visit:
-https://oauth.vk.com/authorize?client_id=6245028&display=page&redirect_uri=https://oauth.vk.com/blank.html&scope=friends&response_type=token&v=5.52
-it will have it in URL
-*/
+const dir = process.argv[3]||"pics";
+const token = process.argv[2];
+if(token==undefined) return console.log("you need to get an access token");
+const vkapi = new (require('node-vkapi'))({ accessToken: token });
 
 const mkdirSync = function (dirPath) {
   try {
@@ -76,7 +73,7 @@ const stealPic = function(favePic, savePath) {
 				return resolve("succ");
 			});
 			response.on("error", error => {
-				console.log("не удалось сохранить картинку по адресу: "+url);
+				console.log("unable to save pic with url: "+url);
 				console.error(error);
 				return resolve("semi-succ");
 			});   			
@@ -107,6 +104,7 @@ const stealPost = function(favePost) {
 }
 
 const stealMany = function( offset) {
+	if(offset>=1000) return console.log("Done");
 	
 	vkapi.call("fave.getPosts",{offset: offset, count: 50, extended: 1})
 	.then( function (fave){ 
@@ -125,6 +123,3 @@ const stealMany = function( offset) {
 	.catch( error => {console.log(error)});	
 }
 stealMany(0);
-	
-	
-
