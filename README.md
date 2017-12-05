@@ -6,8 +6,8 @@ __important note__: currently, because of vk api weirdness, only first 1000 fav.
 ```node-vkapi```
 ## installation
 * install node.js and npm: https://nodejs.org/en/
-* save ```vk.js``` in any directory
-* choose that direcory in console and run ```npm install node-vkapi --only=prod```. node_modules directory should appear there
+* save ```vk.js``` to any directory
+* choose that direcory in console and run ```npm install node-vkapi --only=prod```. "node_modules" directory should appear there
 ## access token
   You need to get an access token, in order to use vk-api.
   You can get it here:
