@@ -68,7 +68,7 @@ const stealPic = function(favePic, savePath) {
 	return new Promise((resolve, reject) => {
 		var url = favePic.photo_2560||favePic.photo_1280|| favePic.photo_807||favePic.photo_604||favePic.photo_130||favePic.photo_75;
 		var request = https.get(url, function(response) {
-  			response.pipe(fs.createWriteStream(savePath+path.sep+favePic.id+".jpg"))
+  			response.pipe(fs.createWriteStream(savePath+path.sep+favePic.owner_id+"_"+favePic.id+".jpg"))
   			response.on("end", () => {
 				return resolve("succ");
 			});
