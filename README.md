@@ -19,7 +19,3 @@ __important note__: currently, because of vk api weirdness, only first 1000 fav.
 ## usage
 1. choose directory with ```vk.js``` in console
 2. run ```node vk.js TOKEN PATH``` where TOKEN is your acess token, and PATH(optional) is the directory you want all pictures to be saved.
-
-Example: ```node vk.js 78f6764a7eb19e08ad3341236000000052ac621234b873490a3b69034asdd539a7844ef98aabd98807a7 "D:\My Progs\Fav_Loader\favpics"```
-
-
