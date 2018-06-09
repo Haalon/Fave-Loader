@@ -28,14 +28,14 @@ var reservedRe = /^\.+$/;
 var windowsReservedRe = /^(con|prn|aux|nul|com[0-9]|lpt[0-9])(\..*)?$/i;
 var windowsTrailingRe = /[\. ]+$/;
 
-function sanitize(input, replacement) {
-	if(replacement==undefined) replacement="";
+function sanitize(input) {
+	
   	var sanitized = input
-    .replace(illegalRe, replacement)
-    .replace(controlRe, replacement)
-    .replace(reservedRe, replacement)
-    .replace(windowsTrailingRe, replacement)
-    .replace(windowsReservedRe, replacement);
+    .replace(illegalRe, "")
+    .replace(controlRe, "")
+    .replace(reservedRe, "")
+    .replace(windowsTrailingRe, "")
+    .replace(windowsReservedRe, "");
 	return sanitized;
 }
 
@@ -66,9 +66,17 @@ const checkAttach = function(attachments){
 
 const stealPic = function(favePic, savePath) {
 	return new Promise((resolve, reject) => {
+		savePath = savePath+path.sep+favePic.owner_id+"_"+favePic.id+".jpg";
 		var url = favePic.photo_2560||favePic.photo_1280|| favePic.photo_807||favePic.photo_604||favePic.photo_130||favePic.photo_75;
+
+		if(fs.existsSync(savePath))
+		{
+			console.log("pic with url: "+url+ " already exists");
+			return resolve("succ");
+		}
+		
 		var request = https.get(url, function(response) {
-  			response.pipe(fs.createWriteStream(savePath+path.sep+favePic.owner_id+"_"+favePic.id+".jpg"))
+  			response.pipe(fs.createWriteStream(savePath))
   			response.on("end", () => {
 				return resolve("succ");
 			});
@@ -88,15 +96,16 @@ const stealPost = function(favePost) {
 		if(!checkAttach(favePost.attachments)) return console.log("empty post"),resolve("succ");
 		
 		result = getAuthor(favePost.owner_id)
-		
+
+		console.log("");
 		console.log("steeling pics from group: "+result);
 		console.log(" from post №: "+ favePost.id);
-		console.log("");
+		
 		var savePath = dir+path.sep+result;
 		mkdirpSync(savePath);
 		var filtered = favePost.attachments.filter(arg => {return arg.type=="photo"});
 		Promise.all( filtered.map( function(arg) { return stealPic(arg.photo, savePath) }))
-		.then( result => {
+		.then( result => {			
 			return resolve("succ");
 		}) 
 	});	
